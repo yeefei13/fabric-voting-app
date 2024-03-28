@@ -1,0 +1,48 @@
+#wrapper {
+    /* border: 1px solid blue; */
+    margin: 50px;
+    position: relative;
+
+}
+#div1 {
+    position: absolute;
+    display: inline-block;
+    width: 50%;
+    height: 50%;
+    /* border: 1px solid rgb(34, 40, 73); */
+    top: 0;  /* Adjust as needed */
+    left: 0; /* Adjust as needed */
+
+}
+
+#div2 {
+    position: absolute;
+    display: inline-block;
+    width: 30%;
+    height: 30%;
+    /* border: 1px solid green; */
+    top:0; 
+    right: 0;   /* Adjust as needed */
+    padding: 10px;
+}
+
+
+#sessionInfo {
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    overflow-y: hidden;
+    resize: none; /* Prevents resizing */
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Similar to default input styling */
+    border-radius: 4px; /* Optional, for rounded corners */
+    line-height: 1.5; /* Adjust line height to match your design */
+}
+
+#optionInputsContainer input {
+    display: block;
+    margin: 10px 0;
+}
+
+

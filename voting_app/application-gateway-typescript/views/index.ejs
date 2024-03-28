@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query Votes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color:rgb(229, 252, 255);">
+    <div id = "wrapper">
+        <div id="div1">
+            <h1 style="text-align:center;">Query Vote Session</h1>
+            <form style="text-align:center;" id="queryForm">
+                <input type="text" id="queryInput" placeholder="Enter a sessionID">
+                <button type="submit">Query</button>
+            </form>
+                <p style="text-align:center;" >enter sessionID to query session, or enter nothing to query all session</p>
+
+            <div style="text-align:center;" id="queryResults"></div>
+        </div>
+
+        <div id="div2">
+            <h2>Create Session Here!</h2>
+            <form id="sessionCreation">
+                <p>Enter your session name here:</p>
+                <input type="text" id="sessionName" placeholder="Enter your session name">
+            
+                <p>More information on voting:</p>
+                <textarea id="sessionInfo" placeholder="This is a voting on ..." rows="1"></textarea>
+                
+                <p>Select the start date:</p>
+                <input type="date" id="startDate" name="startDate" min="2024-01-01">
+                
+                <p>Select the end date:</p>
+                <input type="date" id="endDate" name="endDate">
+
+                <p></p>
+                <label for="optionCountSlider">Number of Options:</label>
+
+                <input type="range" id="optionCountSlider" name="optionCount" min="1" max="100" value="1">
+
+                <span id="optionCountDisplay">1</span>
+
+                <button id="editOptionButton" type="button">Edit Options</button>
+
+                <div id="optionInputsContainer"></div>
+
+                <button type="submit">Submit</button>
+
+            </form>
+            
+            
+        </div>
+    </div>
+
+    <script src="/js/queryResult.js"></script>
+    
+</body>
+</html>

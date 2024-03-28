@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Details</title>
+</head>
+<body style="background-color:rgb(229, 252, 255);">
+    <h1>Session Details: <%= sessions[0].sessionName %></h1>
+    <p><strong>Information:</strong> <%= sessions[0].sessionInformation %></p>
+    <p><strong>Status:</strong> <%= sessions[0].status %></p>
+    <p><strong>Start Time:</strong> <%= sessions[0].startTime %></p>
+    <p><strong>End Time:</strong> <%= sessions[0].endTime %></p>
+
+    <h2>Voting Stats</h2>
+    <div id = "voteStatus">
+        <% sessions[0].options.forEach(function(option, index) { %>
+            <p id="optionVotes-<%= option.optionID %>"><%=option.optionName%>  gets <%= option.numVote%> votes.</p>
+        <% }); %>
+    </div>
+    <!-- More session details -->
+    <h2>Vote Here!</h2>
+    <% if (sessions[0].status == 'open') { %>
+    <form id="voteForm">
+            <% sessions[0].options.forEach(function(option, index) { %>
+                <div>
+                    <input type="radio" id="option<%= option.optionID %>" name="votedOptionID" value="<%= option.optionID %>">
+                    <label for="option<%= option.optionID %>"><%= option.optionName %></label>
+                </div>
+            <% }); %>
+            <input type="hidden" id="sessionID" name="sessionID" value="<%= sessions[0].sessionID %>">
+            <button type="submit">Vote</button>    
+    </form>
+    <% } else { %>
+        <p>Currently not open for voting.</p>
+    <% } %>
+    
+    <div id="voteDetails">
+        <h2>Vote Details</h2>
+        <% if (votes && votes.length > 0) { %>
+            <% votes.forEach(function(vote) { %>
+                <p>Vote ID: <%= vote.voteID %>, Option: <%= vote.votedOption %>, TimeStamp: <%= new Date(vote.voteTimeStamp).toLocaleString() %></p>
+            <% }); %>
+        <% } else { %>
+            <p>No votes recorded for this session.</p>
+        <% } %>
+    </div>
+    
+    <script src="/js/voteHandler.js"></script>
+</body>
+</html>
